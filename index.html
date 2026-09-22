@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f6f3ed">
+  <title>Daymark | Task planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Daymark home">
+        <span class="brand-mark">D</span>
+        <span>daymark</span>
+      </a>
+      <p class="date-label" id="dateLabel"></p>
+    </header>
+
+    <section class="intro" aria-labelledby="pageTitle">
+      <div>
+        <p class="eyebrow">Your daily desk</p>
+        <h1 id="pageTitle">Make room for<br><em>what matters.</em></h1>
+      </div>
+      <div class="progress-note">
+        <span class="progress-ring" id="progressRing" aria-hidden="true"><span id="progressPercent">0%</span></span>
+        <div>
+          <p class="progress-title" id="progressTitle">A clear start</p>
+          <p class="progress-copy" id="progressCopy">Add a task to begin.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="workspace" aria-label="Task workspace">
+      <div class="composer-panel">
+        <p class="section-kicker">Add to your list</p>
+        <form id="taskForm" class="task-form">
+          <label class="sr-only" for="taskInput">Task name</label>
+          <input id="taskInput" name="task" type="text" placeholder="What needs your attention?" maxlength="120" autocomplete="off" required>
+          <button class="add-button" type="submit" aria-label="Add task"><span>+</span> Add task</button>
+        </form>
+        <div class="quick-hint"><span class="spark">✦</span> Keep it specific. Small steps add up.</div>
+      </div>
+
+      <div class="list-panel">
+        <div class="list-header">
+          <div>
+            <p class="section-kicker">Your focus</p>
+            <h2><span id="taskCount">0</span> tasks <span class="task-count-dot">·</span> <span id="activeCount">0</span> open</h2>
+          </div>
+          <button class="clear-button" id="clearCompleted" type="button">Clear completed</button>
+        </div>
+
+        <nav class="filters" aria-label="Filter tasks">
+          <button class="filter-button is-active" type="button" data-filter="all">All <span id="allCount">0</span></button>
+          <button class="filter-button" type="button" data-filter="active">Open <span id="openCount">0</span></button>
+          <button class="filter-button" type="button" data-filter="completed">Done <span id="doneCount">0</span></button>
+        </nav>
+
+        <div id="taskList" class="task-list" aria-live="polite"></div>
+        <div id="emptyState" class="empty-state">
+          <span class="empty-icon">◌</span>
+          <p id="emptyTitle">Nothing on your list yet.</p>
+          <span id="emptyCopy">A quiet list is a good place to begin.</span>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer-note"><span class="status-dot"></span> Saved locally on this device</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
